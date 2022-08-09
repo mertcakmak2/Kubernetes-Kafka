@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kafka-service
+  labels:
+    name: kafka
+spec:
+  ports:
+  - nodePort: 30718
+    port: 9092
+    name: kafka-port
+    protocol: TCP
+  selector:
+    app: kafka
+    id: "0"
+  type: NodePort
